@@ -2,7 +2,6 @@ import os
 from sys import argv, exit
 
 """Moves files in groups into folders.
-
 Useful for dividing large numbers of files in the same directory
 moving them into subfolders.
 
@@ -59,14 +58,10 @@ def filesGroup(
     folder_counter -- starting number to name each folder after prefix
     zerofill -- integer of how many zeros to fill the folder_counter
     """
-    files = [file for file in os.listdir(path) if (
-                                                                                                os.path.isfile(
-                                                                                                        os.path.join(
-                                                                                                                path,
-                                                                                                                file
-                                                                                                                )
-                                                                                                        )
-                                                                                                and file != __file__)]
+    files = [
+            file for file in os.listdir(path) 
+            if (os.path.isfile(os.path.join(path,file)) and file != __file__)
+            ]
 
     for index, item in enumerate(files):
         if(index%quantity_group == 0):          
